@@ -1,0 +1,16 @@
+{{#each posts as |post| }}
+<div class="posts">
+    <header class="post-title">
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+        <span class="posted-by">
+            Posted by: {{post.user.name}} on
+            {{format_date post.date_created}}
+        </span>
+    </header>
+    <p class="post-content">
+        {{post.content}}
+    </p>
+</div>
+{{/each}}
+
+<button class="btn">Create A Post</button>

@@ -23,11 +23,13 @@ router.delete('/:id', checkAuth, async (req, res) => {
             }
         });
 
-        if (!projectData) {
-            res.status(404).json({ message: 'No project found with this ID!' })
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this ID!' })
             return;
         };
 
         res.status(200).json(postData)
     } catch (err) { res.status(400).json(err) }
-})
+});
+
+module.exports = router;

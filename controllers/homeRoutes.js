@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 const checkAuth = require('../utils/auth');
 
 // HOMEPAGE RENDER
@@ -26,17 +26,21 @@ router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, { include: [{ model: User, attributes: ['name'] }] });
 
+        // LOOK FOR COMMENTS
+        const comments = await Comment.findAll({ where: { post_id: req.params.id } });
+
         const post = postData.get({ plain: true });
 
         res.render('post', {
             ...post,
+            ...comments,
             logged_in: req.session.logged_in
         });
 
     } catch (err) { res.status(500).json(err) }
 });
 
-// DASHBOARD 
+// DASHBOARD RENDER
 router.get('/dashboard', checkAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
@@ -54,11 +58,11 @@ router.get('/dashboard', checkAuth, async (req, res) => {
     } catch (err) { res.status(500).json(err) }
 })
 
-// LOGIN
+// LOGIN RENDER/REDIRECT
 router.get('/login', (req, res) => {
 
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/dashboard');
         return;
     }
 

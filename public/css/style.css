@@ -1,0 +1,116 @@
+:root {
+    --headerbg: #2C3333;
+    --bgcolor: #B5EBD0;
+    --accentbg: #E7F6F2;
+    --headertext: white;
+}
+
+* {
+    font-family: 'Share Tech', sans-serif;
+}
+
+header > * {
+    min-width: 220px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+body {
+    background-color: var(--bgcolor);
+}
+
+nav > h4 > a {
+    margin: 0px 10px;
+    color: var(--headertext);
+    padding: 0 5px;
+}
+
+h1 {
+    color: var(--headertext);
+}
+
+h4, h1 {
+    margin: 0;
+}
+
+a {
+    color: var(--headertext);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accentbg);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5%;
+    background-color: var(--headerbg);
+}
+
+.posts {
+    border: 5px var(--headerbg) solid;
+    background-color: var(--accentbg);
+    margin-bottom: 10px;
+}
+
+.post-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    background-color: var(--headerbg);
+    color: var(--headertext);
+    height: 45px;
+    align-items: center;
+}
+
+.post-title > a {
+    justify-content: space-between;
+}
+
+.posted-by {
+    font-size: 15px;
+    align-items: flex-end;
+}
+
+.post-content {
+    margin: 5px;
+    min-height: 80px;
+    width: 99%;
+}
+
+.comment-input {
+    width: 90%;
+    height: 70px;
+    resize: none;
+}
+
+#comment-content {
+    height: 125px;
+    
+}
+
+.comment-user {
+    font-size: 15px;
+    padding-top: 15px;
+    margin-bottom: 0px;
+}
+
+button {
+    background-color: var(--headerbg);
+    color: var(--headertext);
+    border-radius: 7px 7px 7px 7px;
+    font-size: 20px;
+    width: 50%;
+    align-self: center;
+}
+
+button:hover {
+    cursor: pointer;
+}

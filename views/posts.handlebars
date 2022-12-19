@@ -1,0 +1,23 @@
+<div class="text-center posts big-post">
+    <header class="post-title"><a href="/post/{{id}}">{{title}}</a><span class="posted-by">Posted by: {{user.name}} on
+            {{format_date date_created}}</span></header>
+    <p class="post-content">
+        {{content}}
+    </p>
+</div>
+{{#if comments}}
+{{#each comments as |comment|}}
+<div class="text-center posts big-post">
+    <header class="post-title"></header>
+    <p class="post-content">{{comment.content}}</p>
+    <p class="comment-user">Left by: {{comment.commenter}} on {{format_date comment.date_created}}</p>
+</div>
+{{/each}}
+{{/if}}
+<div class="text-center posts">
+    <div class="post-title">Comment</div>
+    <form class="post-content flex-column">
+        <textarea class="form-input" type="text" id="comment-content"></textarea>
+        <button type="submit">Leave A Comment</button>
+    </form>
+</div>
