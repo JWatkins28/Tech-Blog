@@ -22,23 +22,56 @@ router.get('/', async (req, res) => {
 });
 
 // GET POST BY ID
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', checkAuth, async (req, res) => {
     try {
-        const postData = await Post.findByPk(req.params.id, { include: [{ model: User, attributes: ['name'] }] });
-
-        // LOOK FOR COMMENTS
-        const comments = await Comment.findAll({ where: { post_id: req.params.id } });
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name']
+                },
+                {
+                    model: Comment,
+                    where: {
+                        post_id: req.params.id
+                    }
+                }
+            ]
+        });
 
         const post = postData.get({ plain: true });
 
         res.render('post', {
             ...post,
-            ...comments,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         });
 
     } catch (err) { res.status(500).json(err) }
 });
+
+// ADD POST RENDER
+router.get('/post/add', checkAuth, async (req, res) => {
+    try {
+
+        res.render('addpost', { logged_in: req.session.logged_in });
+
+    } catch (err) { res.status(400).json(err) }
+})
+
+// EDIT POST RENDER
+router.get('/post/:id/edit', checkAuth, async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id)
+
+        const post = postData.get({ plain: true });
+
+        res.render('editpost', {
+            ...post,
+            logged_in: req.session.logged_in,
+        })
+
+    } catch (err) { res.status(400).json(err) }
+})
 
 // DASHBOARD RENDER
 router.get('/dashboard', checkAuth, async (req, res) => {
@@ -56,7 +89,7 @@ router.get('/dashboard', checkAuth, async (req, res) => {
         });
 
     } catch (err) { res.status(500).json(err) }
-})
+});
 
 // LOGIN RENDER/REDIRECT
 router.get('/login', (req, res) => {
@@ -67,6 +100,17 @@ router.get('/login', (req, res) => {
     }
 
     res.render('login')
+});
+
+// SIGN UP RENDER/REDIRECT
+router.get('/signup', (req, res) => {
+
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+    }
+
+    res.render('signup')
 });
 
 module.exports = router;

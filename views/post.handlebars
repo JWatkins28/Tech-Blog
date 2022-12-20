@@ -5,7 +5,6 @@
         {{content}}
     </p>
 </div>
-{{#if comments}}
 {{#each comments as |comment|}}
 <div class="text-center posts big-post">
     <header class="post-title"></header>
@@ -13,7 +12,6 @@
     <p class="comment-user">Left by: {{comment.commenter}} on {{format_date comment.date_created}}</p>
 </div>
 {{/each}}
-{{/if}}
 <div class="text-center posts">
     <div class="post-title">Comment</div>
     <form class="post-content flex-column">

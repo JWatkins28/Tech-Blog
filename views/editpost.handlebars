@@ -1,0 +1,17 @@
+<div class="posts edit-container">
+    <form class="form edit-form">
+        <header class="post-title"><span class="justify-flex-start">Edit Post</span><div id="delete-post" data-id="{{id}}">🗑️</div></header>
+        <label for="new-title">
+            <h4>Title:</h4>
+        </label>
+        <textarea class="edit-title" id="new-title" name="new-title">{{title}}</textarea>
+        <label for="new-contents">
+            <h4>Post:</h4>
+        </label>
+        <textarea class="post-content" id="new-contents" name="new-contents" rows="4"
+            cols="50">{{content}}</textarea>
+        <div id="update-btn" type="submit"><button data-id="{{id}}">Update</button></div>
+    </form>
+</div>
+
+<script src="/js/editpost.js"></script>

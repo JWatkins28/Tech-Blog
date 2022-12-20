@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/jass.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+  </style>
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header id="main-header">
+      <nav>
+        <h4>
+          |<a href="/">Home</a> |
+          <a href="/dashboard">Dashboard</a>|
+        </h4>
+      </nav>
+      <h1>The Tech Blog</h1>
+      <nav>
+        <h4>
+          |<a href="/login">Login</a>|
+        </h4>
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- {{{ body }}} -->
+
+      <body>
+        <!-- <div class="homepage">
+                <div class="posts">
+                    <header class="post-title"><a href="/post/">Test Post #1</a><span class="posted-by">Posted by: Test Poster on 5/15/2069</span></header>
+                    <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+
+                <button class="add-post">Add A Post</button>
+            </div> -->
+
+        <!-- <div class="text-center posts big-post">
+                    <header class="post-title"><a href="/post/">Test Post #1</a><span class="posted-by">Posted by: Test Poster on 5/15/2069</span></header>
+                    <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                  </div>
+
+                  <div class="text-center posts big-post">
+                    <header class="post-title"></header>
+                    <p class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="comment-user">Commented by: Justin on 5/15/2020</p>
+                  </div>
+
+                <div class="text-center posts">
+                    <div class="post-title">Comment</div>
+                    <form class="post-content flex-column">
+                    <textarea class="form-input" type="text" id="comment-content"></textarea>
+                    <button type="submit">Leave A Comment</button>
+                </form>
+                </div> -->
+
+        <!-- <div class="row">
+                    <div class="col-md-6 posts">
+                      <h2>Login</h2>
+                      <a href="/signup" class="form-link">Need An Account? Register Here</a>
+                      <form class="form login-form">
+                        <div class="form-group">
+                          <label for="email-login">Username:</label>
+                          <input class="form-input" type="text" id="username-login" />
+                        </div>
+                        <div class="form-group">
+                          <label for="password-login">Password:</label>
+                          <input class="form-input" type="password" id="password-login" />
+                        </div>
+                        <div class="form-group">
+                          <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="col-md-6 posts">
+                      <h2>Signup</h2>
+                      <a href="/signup" class="form-link">Already Registerd? Log In Here</a>
+                      <form class="form signup-form">
+                        <div class="form-group">
+                          <label for="name-signup">Username:</label>
+                          <input class="form-input" type="text" id="username-signup" />
+                        </div>
+                        <div class="form-group">
+                          <label for="password-signup">Password:</label>
+                          <input class="form-input" type="password" id="password-signup" />
+                        </div>
+                        <div class="form-group">
+                          <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                      </form>
+                      
+                    </div>
+                  </div>
+                  
+                  <script src="./js/login.js"></script> -->
+
+        <div class="posts edit-container">
+          <form class="form">
+          <header class="post-title"><span class="justify-flex-start">Add A Post</span></header>
+          <label for="new-title"><h4>Title:</h4></label>
+          <textarea class="edit-title" id="add-title" name="add-title" placeholder="title goes here...."></textarea>
+          <label for="new-contents"><h4>Post:</h4></label>
+          <textarea class="post-content" id="add-contents" name="add-contents" placeholder="post text goes here...."></textarea>
+          <div id="update-btn" type="submit"><button>Create Post</button></div>
+          </form>
+        </div>
+
+
+      </body>
+    </main>
+  </div>
+  <!-- {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}} -->
+</body>
+
+</html>
