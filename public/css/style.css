@@ -26,20 +26,41 @@ nav > h4 > a {
     padding: 0 5px;
 }
 
+nav > h4 {
+    color: var(--accentbg);
+    user-select: none;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+form > h4 {
+    color: var(--headerbg)
+}
+
 h1 {
     color: var(--headertext);
+    user-select: none;
+}
+
+h2 {
+    color: var(--headerbg)
 }
 
 h4, h1 {
     margin: 0;
 }
 
-a {
+.post-link {
     color: var(--headertext);
     text-decoration: none;
 }
 
-a:hover {
+.post-link:hover {
+    text-decoration: underline;
+    color: var(--accentbg);
+}
+
+h4 > a:hover {
     color: var(--accentbg);
     transition: 0.2s;
     cursor: pointer;
@@ -58,6 +79,16 @@ a:hover {
     border: 5px var(--headerbg) solid;
     background-color: var(--accentbg);
     margin-bottom: 10px;
+    margin-right: 10px;
+    
+}
+
+.front-posts {
+    width: 75%;
+}
+
+.edit-container {
+    display: flex;
 }
 
 .post-title {
@@ -83,6 +114,14 @@ a:hover {
     margin: 5px;
     min-height: 80px;
     width: 99%;
+    color: var(--headerbg)
+}
+
+.edit-title {
+    margin: 5px;
+    min-height: 45px;
+    width: 99%;
+    color: var(--headerbg)
 }
 
 .comment-input {
@@ -100,6 +139,50 @@ a:hover {
     font-size: 15px;
     padding-top: 15px;
     margin-bottom: 0px;
+    text-decoration: underline;
+}
+
+textarea {
+    height: fit-content;
+    width: fit-content;
+    resize: none;
+}
+
+.dashboard-post {
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.dashboard-post:hover {
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.dashboard-post-container {
+    width: 95%;
+}
+
+.form-link {
+    text-decoration: none;
+    color: var(--headerbg);
+}
+
+.form-link:hover {
+    text-decoration: underline;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.homepage {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+#update-btn {
+    margin: 3px;
+    text-align: center;
 }
 
 button {
@@ -112,5 +195,14 @@ button {
 }
 
 button:hover {
+    cursor: pointer;
+}
+
+#delete-post {
+    user-select: none;
+    min-width: fit-content;
+}
+
+#delete-post:hover {
     cursor: pointer;
 }

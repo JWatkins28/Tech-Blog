@@ -1,7 +1,8 @@
+<div class="homepage">
 {{#each posts as |post| }}
-<div class="posts">
+<div class="posts front-posts">
     <header class="post-title">
-        <a href="/post/{{post.id}}">{{post.title}}</a>
+        <a href="/post/{{post.id}}" class="post-link">{{post.title}}</a>
         <span class="posted-by">
             Posted by: {{post.user.name}} on
             {{format_date post.date_created}}
@@ -13,4 +14,5 @@
 </div>
 {{/each}}
 
-<button class="btn">Create A Post</button>
+<button id="create-new-btn" onclick="window.location.href='/post/add';">Add A Post</button>
+</div>
