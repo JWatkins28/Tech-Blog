@@ -1,8 +1,8 @@
 const addHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#new-title').value.trim();
-    const content = document.querySelector('#new-contents').value.trim();
+    const title = document.querySelector('#add-title').value.trim();
+    const content = document.querySelector('#add-contents').value.trim();
 
     if (title && content) {
 
@@ -18,7 +18,6 @@ const addHandler = async (event) => {
             alert(response.statusText);
         }
     }
-
 }
 
 document.querySelector('#add-btn').addEventListener('click', addHandler);

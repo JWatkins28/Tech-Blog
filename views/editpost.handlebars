@@ -1,3 +1,4 @@
+<div class="homepage">
 <div class="posts edit-container">
     <form class="form edit-form">
         <header class="post-title"><span class="justify-flex-start">Edit Post</span><div id="delete-post" data-id="{{id}}">🗑️</div></header>
@@ -10,8 +11,11 @@
         </label>
         <textarea class="post-content" id="new-contents" name="new-contents" rows="4"
             cols="50">{{content}}</textarea>
-        <div id="update-btn" type="submit"><button data-id="{{id}}">Update</button></div>
+        <div id="update-btn" class="center-btn" type="submit"><button data-id="{{id}}">Update</button></div>
     </form>
+</div>
+
+<button class="create-new-btn" onclick="window.location.href='/post/{{id}}';">View Post</button>
 </div>
 
 <script src="/js/editpost.js"></script>

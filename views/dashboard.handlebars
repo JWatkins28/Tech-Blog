@@ -1,13 +1,11 @@
+<div class="homepage">
 {{#each posts as |post| }}
 <div class="dashboard-post-container">
     <a href="/post/{{post.id}}/edit" class="dashboard-post">
         <div class="posts">
             <header class="post-title">
                 {{post.title}}
-                <span class="posted-by">
-                    Posted by: {{name}} on
-                    {{format_date post.date_created}}
-                </span>
+
             </header>
             <p class="post-content">
                 {{post.content}}
@@ -16,3 +14,6 @@
     </a>
 </div>
 {{/each}}
+
+<button class="create-new-btn" onclick="window.location.href='/add';">Add A Post</button>
+</div>

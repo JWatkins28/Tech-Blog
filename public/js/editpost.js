@@ -1,26 +1,3 @@
-const addHandler = async (event) => {
-    event.preventDefault();
-
-    const title = document.querySelector('#new-title').value.trim();
-    const content = document.querySelector('#new-contents').value.trim();
-
-    if (title && content) {
-
-        const response = await fetch(`/api/posts/`, {
-            method: 'POST',
-            body: JSON.stringify({ title, content }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert(response.statusText);
-        }
-    }
-
-}
-
 const editHandler = async (event) => {
     event.preventDefault();
 
@@ -66,6 +43,6 @@ const deleteHandler = async (event) => {
     }
 };
 
-document.querySelector('#create-new-btn').addEventListener('click', addHandler);
+
 document.querySelector('#delete-post').addEventListener('click', deleteHandler);
 document.querySelector('#update-btn').addEventListener('click', editHandler);
