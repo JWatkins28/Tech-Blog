@@ -9,7 +9,7 @@
     font-family: 'Share Tech', sans-serif;
 }
 
-header > * {
+header>* {
     min-width: 220px;
     display: flex;
     align-items: flex-end;
@@ -20,20 +20,20 @@ body {
     background-color: var(--bgcolor);
 }
 
-nav > h4 > a {
+nav>h4>a {
     margin: 0px 10px;
     color: var(--headertext);
     padding: 0 5px;
 }
 
-nav > h4 {
+nav>h4 {
     color: var(--accentbg);
     user-select: none;
     font-size: 20px;
     margin-right: 5px;
 }
 
-form > h4 {
+form>h4 {
     color: var(--headerbg)
 }
 
@@ -46,7 +46,8 @@ h2 {
     color: var(--headerbg)
 }
 
-h4, h1 {
+h4,
+h1 {
     margin: 0;
 }
 
@@ -60,7 +61,7 @@ h4, h1 {
     color: var(--accentbg);
 }
 
-h4 > a:hover {
+h4>a:hover {
     color: var(--accentbg);
     transition: 0.2s;
     cursor: pointer;
@@ -80,7 +81,7 @@ h4 > a:hover {
     background-color: var(--accentbg);
     margin-bottom: 10px;
     margin-right: 10px;
-    
+
 }
 
 .front-posts {
@@ -101,7 +102,7 @@ h4 > a:hover {
     align-items: center;
 }
 
-.post-title > a {
+.post-title>a {
     justify-content: space-between;
 }
 
@@ -132,7 +133,7 @@ h4 > a:hover {
 
 #comment-content {
     height: 125px;
-    
+
 }
 
 .comment-user {
@@ -175,14 +176,15 @@ textarea {
 }
 
 .homepage {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
 
-#update-btn {
+.center-btn {
     margin: 3px;
     text-align: center;
+
 }
 
 button {
@@ -205,4 +207,10 @@ button:hover {
 
 #delete-post:hover {
     cursor: pointer;
+}
+
+#bad-login {
+    color: red;
+    opacity: 0;
+    user-select: none;
 }

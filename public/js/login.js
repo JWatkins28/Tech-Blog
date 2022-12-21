@@ -13,9 +13,9 @@ const loginHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard')
+            return document.location.replace('/dashboard')
         } else {
-            alert(response.statusText);
+            return document.getElementById("bad-login").style.opacity="1";
         }
     }
 };

@@ -24,23 +24,39 @@ router.get('/', async (req, res) => {
 // GET POST BY ID
 router.get('/post/:id', checkAuth, async (req, res) => {
     try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['name']
-                },
-                {
-                    model: Comment,
-                    where: {
-                        post_id: req.params.id
+
+        const commentCheck = await Comment.findAll({ where: { post_id: req.params.id } });
+        let postData; 
+
+        if (!commentCheck.length) { 
+            postData = await Post.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: User,
+                        attributes: ['name']
                     }
-                }
-            ]
-        });
+                ]
+            });
+         } else {
+            postData = await Post.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: User,
+                        attributes: ['name']
+                    },
+                    {
+                        model: Comment,
+                        where: {
+                            post_id: req.params.id
+                        }
+                    }
+                ]
+            });
+         }
+        
 
         const post = postData.get({ plain: true });
-
+        // res.json(commentCheck);
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in,
@@ -50,13 +66,13 @@ router.get('/post/:id', checkAuth, async (req, res) => {
 });
 
 // ADD POST RENDER
-router.get('/post/add', checkAuth, async (req, res) => {
+router.get('/add', checkAuth, async (req, res) => {
     try {
 
         res.render('addpost', { logged_in: req.session.logged_in });
 
     } catch (err) { res.status(400).json(err) }
-})
+});
 
 // EDIT POST RENDER
 router.get('/post/:id/edit', checkAuth, async (req, res) => {
@@ -71,7 +87,7 @@ router.get('/post/:id/edit', checkAuth, async (req, res) => {
         })
 
     } catch (err) { res.status(400).json(err) }
-})
+});
 
 // DASHBOARD RENDER
 router.get('/dashboard', checkAuth, async (req, res) => {
@@ -82,7 +98,7 @@ router.get('/dashboard', checkAuth, async (req, res) => {
         });
 
         const user = userData.get({ plain: true });
-
+       
         res.render('dashboard', {
             ...user,
             logged_in: true
