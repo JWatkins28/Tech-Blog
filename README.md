@@ -8,7 +8,7 @@ This is a tech blog website that you can create a profile on, create posts and l
 
 This project used mySQL, mySQL2, Sequelize, Express.js, Handlebars, Express-Session, Connectn-Session-Sequelize, bcrypt, and dotenv. 
 
-This app is deployed via Heroku here: 
+This app is deployed via Heroku here: https://pacific-oasis-95450.herokuapp.com/
 
 ---
 
@@ -42,7 +42,7 @@ npm i
 
 ## **Usage**
 
-You can use this project by accessing it at the deployed link: 
+You can use this project by accessing it at the deployed link: https://pacific-oasis-95450.herokuapp.com/
 
 Register for an account and start making posts! 
 
