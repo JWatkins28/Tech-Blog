@@ -5,14 +5,10 @@ const checkAuth = require('../utils/auth');
 // HOMEPAGE RENDER
 router.get('/', async (req, res) => {
     try {
-
-        // GET ALL POSTS
         const postData = await Post.findAll({ include: [{ model: User, attributes: ['name'] }] });
 
-        // SERIALIZE THE DATA SO IT'S READABLE JSON
         const posts = postData.map((post) => post.get({ plain: true }));
 
-        // RENDER CONTENT ONTO PAGE WITH SESSION FLAG
         res.render('homepage', {
             posts,
             logged_in: req.session.logged_in
@@ -24,11 +20,11 @@ router.get('/', async (req, res) => {
 // GET POST BY ID
 router.get('/post/:id', checkAuth, async (req, res) => {
     try {
-
+        // GRAB ALL COMMENTS FOR THIS POST ID
         const commentCheck = await Comment.findAll({ where: { post_id: req.params.id } });
-        let postData; 
-
-        if (!commentCheck.length) { 
+        let postData;
+        // SEE IF COMMENTS EXIST - IF THEY DON'T GRAB ALL POSTS WITHOUT COMMENT MODEL
+        if (!commentCheck.length) {
             postData = await Post.findByPk(req.params.id, {
                 include: [
                     {
@@ -37,7 +33,8 @@ router.get('/post/:id', checkAuth, async (req, res) => {
                     }
                 ]
             });
-         } else {
+        // IF IT DOES HAVE COMMENTS, GRAB ALL POSTS WITH COMMENTS WITH ATTACHED COMMENTS
+        } else {
             postData = await Post.findByPk(req.params.id, {
                 include: [
                     {
@@ -52,11 +49,10 @@ router.get('/post/:id', checkAuth, async (req, res) => {
                     }
                 ]
             });
-         }
-        
+        }
 
         const post = postData.get({ plain: true });
-        // res.json(commentCheck);
+
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in,
@@ -98,7 +94,7 @@ router.get('/dashboard', checkAuth, async (req, res) => {
         });
 
         const user = userData.get({ plain: true });
-       
+
         res.render('dashboard', {
             ...user,
             logged_in: true

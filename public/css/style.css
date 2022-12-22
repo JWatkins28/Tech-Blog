@@ -214,3 +214,9 @@ button:hover {
     opacity: 0;
     user-select: none;
 }
+
+#gen-error {
+    color: red;
+    opacity: 0;
+    user-select: none;
+}

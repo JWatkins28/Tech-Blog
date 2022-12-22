@@ -1,3 +1,4 @@
+// SIGN UP FUNCTION
 const signupHandler = async (event) => {
     event.preventDefault();
 
@@ -5,7 +6,7 @@ const signupHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
 
     if (name && password) {
-        
+
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ name, password }),
@@ -15,7 +16,7 @@ const signupHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            return document.getElementById("bad-login").style.opacity = "1";
         }
     }
 };

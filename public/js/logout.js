@@ -1,3 +1,4 @@
+// LOGOUT FUNCTION
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
         method: 'POST',
@@ -8,7 +9,7 @@ const logout = async () => {
         document.location.replace('/');
         document.location.reload();
     } else {
-        alert(response.statusText);
+        return;
     }
 };
 
