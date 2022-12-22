@@ -1,3 +1,4 @@
+// ADD COMMENT FUNCTION
 const commentHandler = async (event) => {
     event.preventDefault();
 
@@ -12,9 +13,14 @@ const commentHandler = async (event) => {
                 body: JSON.stringify({ content, post_id }),
                 headers: { 'Content-Type': 'application/json' },
             });
+
+            if (response.ok) {
+                document.location.reload();
+            } else {
+                return document.getElementById("gen-error").style.opacity = "1";
+            }
         }
     }
-    document.location.reload();
 };
 
 

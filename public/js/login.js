@@ -1,3 +1,4 @@
+// LOGIN FUNCTION
 const loginHandler = async (event) => {
     event.preventDefault();
 
@@ -15,7 +16,7 @@ const loginHandler = async (event) => {
         if (response.ok) {
             return document.location.replace('/dashboard')
         } else {
-            return document.getElementById("bad-login").style.opacity="1";
+            return document.getElementById("bad-login").style.opacity = "1";
         }
     }
 };

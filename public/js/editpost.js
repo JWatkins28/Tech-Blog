@@ -1,3 +1,4 @@
+// EDIT POST FUNCTION
 const editHandler = async (event) => {
     event.preventDefault();
 
@@ -19,12 +20,13 @@ const editHandler = async (event) => {
             if (response.ok) {
                 document.location.replace('/dashboard');
             } else {
-                alert(response.statusText);
+                return document.getElementById("gen-error").style.opacity = "1";
             }
         }
     }
 }
 
+// DELETE POST FUNCTION
 const deleteHandler = async (event) => {
     event.preventDefault();
 
@@ -38,7 +40,7 @@ const deleteHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard')
         } else {
-            alert('Failed to delete project')
+            return document.getElementById("gen-error").style.opacity = "1";
         }
     }
 };

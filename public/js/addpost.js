@@ -1,3 +1,4 @@
+// ADD POST FUNCTION
 const addHandler = async (event) => {
     event.preventDefault();
 
@@ -15,7 +16,7 @@ const addHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            return document.getElementById("gen-error").style.opacity = "1";
         }
     }
 }
